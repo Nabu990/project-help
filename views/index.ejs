@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/scripts.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Welcome to the User Auth System</h1>
+            <nav>
+                <ul>
+                    <li><a href="/signup" class="btn">Sign Up</a></li>
+                    <li><a href="/login" class="btn">Login</a></li>
+                    <li><a href="#submit-project" class="btn">Add Project</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <h2>Your Gateway to Secure and Easy Authentication</h2>
+            <p>Register or log in to access exclusive features and manage your account with ease.</p>
+            <a href="/signup" class="btn">Get Started</a>
+        </section>
+
+        <section class="submit-project" id="submit-project">
+            <h2>Submit Your Project</h2>
+            <p>Showcase your work and share your achievements with our community.</p>
+            <form action="/submit-project" method="POST" enctype="multipart/form-data">
+                <input type="text" name="projectTitle" placeholder="Project Title" required>
+                <textarea name="projectDescription" placeholder="Project Description" required></textarea>
+                <input type="file" name="projectImage" accept="image/*" required>
+                <button type="submit" class="btn">Submit Project</button>
+            </form>
+        </section>
+
+        <section class="testimonials">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial-cards">
+                <% testimonials.forEach(testimonial => { %>
+                    <div class="testimonial-card">
+                        <blockquote>
+                            <p><%= testimonial.message %></p>
+                            <footer>- <%= testimonial.user %></footer>
+                        </blockquote>
+                    </div>
+                <% }); %>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>
